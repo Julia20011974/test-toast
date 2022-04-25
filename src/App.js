@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToastService } from './services/ToastService';
+import { element } from './constants';
+import { useState } from 'react';
+import { ToastContainer } from './container/ToastContainer/ToastContainer';
+
+
+const service = ToastService.getInstance();
+const  obj = {
+  name:'qww',
+  fullname:'1222'
+}
 
 function App() {
+   
+  const handleClick = () => {
+    service.createToast(obj)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <button onClick={handleClick} >
+      создать тост
+    </button>
+    </>
   );
 }
 
